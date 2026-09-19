@@ -343,3 +343,12 @@ window.addEventListener('keydown', (e) => {
         els.searchResults?.classList.add('hidden');
     }
 });
+// Diagnostics and Query Telemetry
+const telemetry = {
+    logQuery: (cityName, durationMs) => {
+        console.debug(`[SkyLens Telemetry] Weather loaded for ${cityName} in ${durationMs}ms`);
+    },
+    logError: (scope, error) => {
+        console.error(`[SkyLens Error] [${scope}]:`, error);
+    }
+};
