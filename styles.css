@@ -438,3 +438,9 @@ footer {
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(245, 158, 11, 0.65);
 }
+/* Keyboard Navigation Focus Rings */
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--accent-amber);
+    outline-offset: 2px;
+}
