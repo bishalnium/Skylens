@@ -28,15 +28,15 @@
             <div class="search-container">
                 <div class="search-bar">
                     <i data-lucide="search" class="search-icon"></i>
-                    <input type="text" id="citySearch" placeholder="Search city..." autocomplete="off">
-                    <button id="geoBtn" title="Use Current Location"><i data-lucide="map-pin"></i></button>
+                    <input type="text" id="citySearch" placeholder="Search city..." autocomplete="off" aria-label="Search city name">
+                    <button id="geoBtn" title="Use Current Location" aria-label="Use Current Location"><i data-lucide="map-pin"></i></button>
                 </div>
                 <ul id="searchResults" class="search-results hidden"></ul>
             </div>
 
             <div class="unit-toggle">
-                <button id="metricBtn" class="active">Â°C</button>
-                <button id="imperialBtn">Â°F</button>
+                <button id="metricBtn" class="active" aria-label="Switch to Metric Celsius">Â°C</button>
+                <button id="imperialBtn" aria-label="Switch to Imperial Fahrenheit">Â°F</button>
             </div>
         </header>
 
