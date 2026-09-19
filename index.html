@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sky Lens - Weather Dashboard</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <i data-lucide="cloud-sun"></i>
+                <h1>Sky Lens</h1>
+            </div>
+            
+            <div class="search-container">
+                <div class="search-bar">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="text" id="citySearch" placeholder="Search city..." autocomplete="off">
+                    <button id="geoBtn" title="Use Current Location"><i data-lucide="map-pin"></i></button>
+                </div>
+                <ul id="searchResults" class="search-results hidden"></ul>
+            </div>
+
+            <div class="unit-toggle">
+                <button id="metricBtn" class="active">°C</button>
+                <button id="imperialBtn">°F</button>
+            </div>
+        </header>
+
+        <main id="mainContent" class="hidden">
+            <section class="current-weather">
+                <div class="city-info">
+                    <h2 id="cityName">Loading...</h2>
+                    <p id="currentDate"></p>
+                </div>
+                
+                <div class="weather-main">
+                    <div class="temp-display">
+                        <span id="currentTemp">--</span>
+                        <span class="unit-symbol">°</span>
+                    </div>
+                    <div class="condition-display">
+                        <i id="conditionIcon" data-lucide="sun"></i>
+                        <span id="conditionText">--</span>
+                    </div>
+                </div>
+
+                <div class="min-max-feels">
+                    <div class="mmf-item">
+                        <i data-lucide="thermometer"></i> Feels like <span id="feelsLike">--</span>
+                    </div>
+                    <div class="mmf-item">
+                        <i data-lucide="arrow-down"></i> Min <span id="tempMin">--</span>
+                    </div>
+                    <div class="mmf-item">
+                        <i data-lucide="arrow-up"></i> Max <span id="tempMax">--</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <i data-lucide="wind"></i> Wind
+                    </div>
+                    <div class="metric-value">
+                        <span id="windSpeed">--</span> <span id="windUnit" class="text-sm">km/h</span>
+                    </div>
+                    <div class="metric-desc" id="windDir">--</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <i data-lucide="droplets"></i> Humidity
+                    </div>
+                    <div class="metric-value">
+                        <span id="humidity">--</span>%
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <i data-lucide="sun"></i> UV Index
+                    </div>
+                    <div class="metric-value">
+                        <span id="uvIndex">--</span>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <i data-lucide="gauge"></i> Pressure
+                    </div>
+                    <div class="metric-value">
+                        <span id="pressure">--</span> hPa
+                    </div>
+                </div>
+            </section>
+
+            <section class="chart-section">
+                <div class="chart-header">
+                    <h3>24-Hour Forecast</h3>
+                    <div class="chart-toggles">
+                        <button id="chartTempBtn" class="active">Temperature</button>
+                        <button id="chartRainBtn">Precipitation</button>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="forecastChart"></canvas>
+                </div>
+            </section>
+
+            <section class="daily-forecast">
+                <h3>7-Day Forecast</h3>
+                <div class="forecast-list" id="forecastList">
+                    <!-- Dynamic Items -->
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p class="footer-text">Sky Lens • Live Meteorological Forecast & Radar</p>
+        </footer>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
