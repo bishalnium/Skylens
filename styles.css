@@ -444,3 +444,17 @@ input:focus-visible {
     outline: 2px solid var(--accent-amber);
     outline-offset: 2px;
 }
+/* Card Glassmorphism Transitions */
+.current-weather,
+.forecast-card,
+.metrics-card,
+.hourly-forecast {
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.forecast-card:hover,
+.metrics-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(245, 158, 11, 0.4);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
