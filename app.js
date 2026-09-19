@@ -1,9 +1,13 @@
-// app.js
+﻿// app.js
 document.addEventListener("DOMContentLoaded", () => {
     lucide.createIcons();
     initApp();
 });
 
+/**
+ * Core Application Configuration and WMO Weather Interpretation Codes
+ * @constant {Object}
+ */
 const CONSTANTS = {
     DEFAULT_CITY: { name: "London", lat: 51.5085, lon: -0.1257, country: "United Kingdom", timezone: "Europe/London" },
     WMO_CODES: {
@@ -219,14 +223,14 @@ function updateUI() {
     els.conditionIcon.setAttribute('data-lucide', weatherInfo.icon);
     
     // Min Max Feels
-    els.feelsLike.textContent = formatTemp(current.apparent_temperature) + '°';
-    els.tempMin.textContent = formatTemp(daily.temperature_2m_min[0]) + '°';
-    els.tempMax.textContent = formatTemp(daily.temperature_2m_max[0]) + '°';
+    els.feelsLike.textContent = formatTemp(current.apparent_temperature) + 'Â°';
+    els.tempMin.textContent = formatTemp(daily.temperature_2m_min[0]) + 'Â°';
+    els.tempMax.textContent = formatTemp(daily.temperature_2m_max[0]) + 'Â°';
     
     // Metrics
     els.windSpeed.textContent = formatSpeed(current.wind_speed_10m);
     els.windUnit.textContent = isMetric ? 'km/h' : 'mph';
-    els.windDir.textContent = `Direction: ${getWindDir(current.wind_direction_10m)} (${current.wind_direction_10m}°)`;
+    els.windDir.textContent = `Direction: ${getWindDir(current.wind_direction_10m)} (${current.wind_direction_10m}Â°)`;
     
     els.humidity.textContent = current.relative_humidity_2m;
     els.uvIndex.textContent = daily.uv_index_max[0];
@@ -261,7 +265,7 @@ function renderChart() {
         ? hourly.temperature_2m.slice(startIndex, startIndex + 24).map(t => formatTemp(t))
         : hourly.precipitation_probability.slice(startIndex, startIndex + 24);
         
-    const label = isTemp ? `Temperature (${isMetric ? '°C' : '°F'})` : 'Precipitation Probability (%)';
+    const label = isTemp ? `Temperature (${isMetric ? 'Â°C' : 'Â°F'})` : 'Precipitation Probability (%)';
     const color = isTemp ? '#f59e0b' : '#3b82f6';
     const bgColor = isTemp ? 'rgba(245, 158, 11, 0.1)' : 'rgba(59, 130, 246, 0.1)';
 
@@ -321,8 +325,8 @@ function renderDailyForecast() {
                 <span>${wmo.desc}</span>
             </div>
             <div class="forecast-temps">
-                <span class="max">${max}°</span>
-                <span class="min">${min}°</span>
+                <span class="max">${max}Â°</span>
+                <span class="min">${min}Â°</span>
             </div>
         `;
         els.forecastList.appendChild(item);
