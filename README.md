@@ -22,3 +22,19 @@ Open `index.html` directly in any modern web browser or serve locally:
 ```bash
 python -m http.server 3000
 ```
+
+## Keyboard Shortcuts
+| Shortcut | Action |
+|----------|--------|
+| `/` | Instant focus on city search input |
+| `Esc` | Clear search focus and hide dropdown suggestions |
+| `Enter` | Submit first autocomplete result |
+
+## Architecture Overview
+- **Client Architecture**: Pure Vanilla JavaScript with zero build steps or bundlers.
+- **Data Layer**: Direct asynchronous REST calls to the Open-Meteo Weather and Geocoding APIs.
+- **Visualization**: HTML5 Canvas hardware-accelerated rendering powered by Chart.js.
+- **Iconography**: Clean SVG-rendered vector icons via Lucide.
+
+## License
+Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
