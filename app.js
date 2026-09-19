@@ -332,3 +332,14 @@ function renderDailyForecast() {
         els.forecastList.appendChild(item);
     }
 }
+
+// Global Keyboard Shortcuts
+window.addEventListener('keydown', (e) => {
+    if (e.key === '/' && document.activeElement !== els.citySearch) {
+        e.preventDefault();
+        els.citySearch?.focus();
+    } else if (e.key === 'Escape' && document.activeElement === els.citySearch) {
+        els.citySearch?.blur();
+        els.searchResults?.classList.add('hidden');
+    }
+});
