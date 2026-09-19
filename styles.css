@@ -1,4 +1,4 @@
-/* styles.css */
+﻿/* styles.css */
 :root {
     --bg-color: #1a1a2e;
     --card-bg: rgba(30, 30, 50, 0.8);
@@ -418,4 +418,23 @@ footer {
         grid-template-columns: 80px 1fr 100px;
         font-size: 0.9rem;
     }
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(26, 26, 46, 0.6);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(245, 158, 11, 0.35);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(245, 158, 11, 0.65);
 }
